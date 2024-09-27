@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Sabores - Pizzaria Bella</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F8F1E5;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #C0392B;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .pizzaCard {
+            background-color: #FFF;
+            width: 250px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .pizzaCard:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .pizzaNome {
+            color: #27AE60;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .pizzapreco {
+            font-size: 18px;
+            color: #C0392B;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Catálogo de Sabores</h1>
+
+    <!-- Container  sabores -->
+    <div class="container" id="catalogo"></div>
+
+
+
+
+
+    <script>
+        // objetos literais dos sabores
+        const saboresPizza = [
+            { nome: "Margherita", descricao: "Molho de tomate, mussarela, manjericão", preco: 25.00 },
+            { nome: "Pepperoni", descricao: "Molho de tomate, mussarela, pepperoni", preco: 28.00 },
+            { nome: "Frango com Catupiry", descricao: "Frango desfiado, catupiry, mussarela", preco: 30.00 },
+            { nome: "Quatro Queijos", descricao: "Mussarela, gorgonzola, parmesão, provolone", preco: 32.00 },
+            { nome: "Calabresa", descricao: "Calabresa fatiada, cebola, mussarela", preco: 27.00 }
+
+        ];
+
+        // Selecionar o contêiner de catálogo
+        const catalogoContainer = document.getElementById("catalogo");
+
+            saboresPizza.forEach(pizza => {
+                // cria um card para cada sabor que tem nos objetos literais
+                const card = document.createElement("div");
+                card.className = "pizzaCard";
+
+                // titulo
+                const nome = document.createElement("h2");
+                nome.className = "pizzaNome";
+                nome.innerText = pizza.nome;
+
+                // desc
+                const descricao = document.createElement("p");
+                descricao.innerText = pizza.descricao;
+
+                // preco
+                const preco = document.createElement("p");
+                preco.className = "pizzaPreco";
+                preco.innerText = `Preço: R$ ${pizza.preco.toFixed(2)}`;
+
+                // Adicionar elementos ao card
+                card.appendChild(nome);
+                card.appendChild(descricao);
+                card.appendChild(preco);
+
+                // adiciona o catalago no container
+                catalogoContainer.appendChild(card);
+            });
+
+    </script>
+</body>
+</html>

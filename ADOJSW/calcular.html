@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Preço - Pizzaria Bella</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F8F1E5;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #C0392B;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .resultado {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #FFF;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            color: #27AE60;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Calcular Total do Pedido</h1>
+
+    <div id="resultado" class="resultado">
+        Digite os parâmetros na URL para calcular o total.
+    </div>
+
+
+    <script>
+        // funcao para pegar os parâmetros da URL
+        function obterParametrosDaUrl() {
+
+            const queryString = window.location.search; // apos o "?""
+
+            const urlParams = new URLSearchParams(queryString);
+
+            //pegar parâmetros "preco1" e "preco2"
+            const preco1 = parseFloat(urlParams.get("preco1")) ;
+            const preco2 = parseFloat(urlParams.get("preco2")) ;
+
+            return { preco1, preco2 };
+        }
+
+        // calcular o total com base nos parâmetros
+        function calcularTotal() {
+
+            const parametros = obterParametrosDaUrl();
+
+            // Calcula o valor total (apenas soma dos preços)
+            const total = parametros.preco1 + parametros.preco2;
+
+            // Exibe o valor total no elemento com id "resultado"
+            const resultadoDiv = document.getElementById("resultado");
+
+                resultadoDiv.innerHTML = `
+                    <strong>Preço 1:</strong> R$ ${parametros.preco1.toFixed(2)}<br>
+                    <strong>Preço 2:</strong> R$ ${parametros.preco2.toFixed(2)}<br><br>
+                    <strong>Valor Total: R$ ${total.toFixed(2)}</strong>`;
+         
+        }
+
+        calcularTotal();
+    </script>
+</body>
+</html>

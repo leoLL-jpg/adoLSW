@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Vindas</title>
+</head>
+
+<style>
+
+body {
+    font-family: 'Arial', sans-serif;
+            background-color: #f0dec0; /* Cor de fundo suave para a página */
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #C0392B; /* Vermelho escuro para o título */
+            font-size: 48px;
+        }
+
+        nav {
+            margin-top: 30px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #FFF;
+            padding: 15px 20px;
+            background-color: #27AE60; /* Verde para os botões */
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #C0392B; /* Mudar para vermelho no hover */
+            color: #FFF;
+        }
+
+        #date {
+            margin-top: 40px;
+            font-size: 20px;
+            color: #555;
+        }
+
+        footer {
+            margin-top: 60px;
+            color: #888;
+            font-size: 14px;
+        }
+</style>
+
+<body>
+    
+    <h1 id="boasVindas"></h1>
+
+    <!-- navegacao links -->
+
+    <nav>
+        <a href="sabores.html"> Sabores </a>
+        <a href="calcular.html"> Calcular </a>
+        <a href="maisVendidas.html"> Mais Vendidas </a>
+        <a href="sobre.html"> Sobre </a>
+    </nav>
+
+    <!-- mostrar data e hora -->
+    <div id="date"></div>
+
+    <!-- <footer>
+        &copy; 2024 Pizzaria do Leo e do Vini
+    </footer> -->
+
+    <script>
+
+        document.getElementById("boasVindas").innerText = "Bem-vindo à Pizzaria";
+
+        //funcao date 
+
+        function exibirDataHora() {
+            const dataAtual = new Date();
+            const databr = dataAtual.toLocaleDateString('pt-BR');
+            const horabr = dataAtual.toLocaleTimeString('pt-BR');
+            document.getElementById("date").innerText = `hoje é ${databr}, e agora são ${horabr}`;
+        }
+
+        exibirDataHora();
+        setInterval(exibirDataHora, 1000);
+
+    </script>
+
+</body>
+</html>
