@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Pizza Centralizado</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                background-color: #f0dec0; 
+                color: #333;
+                text-align: center;
+                padding: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Ocupa toda a altura da tela */
+                margin: 0;
+            }
+
+            .chart-container {
+                width: 30%; / Largura do gráfico /
+                max-width: 70px; / Largura máxima do gráfico /
+                padding: 0; /* Remove o padding da container */
+            }
+
+        </style>
+        
+</head>
+<body>
+
+    <div class="chart-container">
+        <canvas id="myChart" style="width:100%;"></canvas>
+    </div>
+
+
+    <script>
+
+        const xValues = ["Margherita", "Pepperoni", "Frango com Catupiry", "Quatro Queijos", "Calabresa"];
+        const yValues = [55, 49, 44, 24, 15];
+        const barColors = ["pink", "green", "blue", "orange", "brown"];
+
+        new Chart("myChart", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+                }]
+            },
+            options: {
+
+                plugins: {
+                    title: {
+                        display: true,
+                        text: "Gráfico de Pizzas Mais Vendidas",
+                        font: {
+                        size: 24,
+                        weight: 'bold',
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
