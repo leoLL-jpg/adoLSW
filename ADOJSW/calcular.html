@@ -50,8 +50,8 @@
             const urlParams = new URLSearchParams(queryString);
 
             //pegar parâmetros "preco1" e "preco2"
-            const preco1 = parseFloat(urlParams.get("preco1")) ;
-            const preco2 = parseFloat(urlParams.get("preco2")) ;
+            const preco1 = parseFloat(urlParams.get("preco1")) || 0 ;
+            const preco2 = parseFloat(urlParams.get("preco2")) || 0 ;
 
             return { preco1, preco2 };
         }
